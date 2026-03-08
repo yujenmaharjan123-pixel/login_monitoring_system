@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Login Monitoring System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f6fa;
+        }
+
+        .navbar {
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .navbar h1 {
+            color: #667eea;
+            font-size: 20px;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .btn-logout {
+            padding: 8px 20px;
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .back-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        input[type="number"]:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        input[type="checkbox"] {
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: #ddd;
+            color: #333;
+            margin-left: 10px;
+        }
+
+        .btn-secondary:hover {
+            background: #ccc;
+        }
+
+        .btn-danger {
+            background: #ff6b6b;
+        }
+
+        .btn-danger:hover {
+            background: #ff5252;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .alert.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .form-section {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            font-size: 13px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>⚙️ Settings</h1>
+        <div class="nav-right">
+            <a href="/dashboard" style="text-decoration: none; color: #667eea; font-weight: 600;">← Back to Dashboard</a>
+            <a href="/logout" class="btn-logout">Logout</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="successAlert" class="alert success"></div>
+        <div id="errorAlert" class="alert error"></div>
+
+        <!-- Alert Threshold Settings -->
+        <div class="section">
+            <div class="section-title">🔔 Alert Settings</div>
+            
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="alertThreshold">Failed Attempt Threshold</label>
+                    <input type="number" id="alertThreshold" name="alertThreshold" min="1" max="20" value="5">
+                    <div class="description">Alert after this many failed login attempts within 30 minutes</div>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="emailAlerts" name="emailAlerts">
+                    <label for="emailAlerts">Enable Email Alerts</label>
+                </div>
+                <div class="description">Receive email notifications for suspicious login attempts</div>
+            </div>
+
+            <button class="btn" onclick="saveAlertSettings()">💾 Save Alert Settings</button>
+        </div>
+
+        <!-- Security Information -->
+        <div class="section">
+            <div class="section-title">🔐 Security Information</div>
+            
+            <div class="form-section">
+                <h4 style="margin-bottom: 15px;">Your Account Details</h4>
+                
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="username" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label>Account Created</label>
+                    <input type="text" id="createdAt" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label>Last Login</label>
+                    <input type="text" id="lastLogin" readonly>
+                </div>
+            </div>
+        </div>
+
+        <!-- Security Tips -->
+        <div class="section">
+            <div class="section-title">💡 Security Tips</div>
+            
+            <div style="line-height: 1.8; color: #666;">
+                <p style="margin-bottom: 15px;">
+                    <strong>🔒 Strong Passwords:</strong> Use a combination of uppercase, lowercase, numbers, and special characters. Avoid common words and personal information.
+                </p>
+                <p style="margin-bottom: 15px;">
+                    <strong>🔑 Unique Passwords:</strong> Use different passwords for different accounts. Never reuse passwords across services.
+                </p>
+                <p style="margin-bottom: 15px;">
+                    <strong>📱 Two-Factor Authentication:</strong> Enable 2FA when available for additional security.
+                </p>
+                <p style="margin-bottom: 15px;">
+                    <strong>👁️ Monitor Activity:</strong> Regularly review your login history and suspicious activity alerts.
+                </p>
+                <p style="margin-bottom: 15px;">
+                    <strong>🛡️ Trusted Devices:</strong> Only log in from trusted devices and networks.
+                </p>
+                <p>
+                    <strong>⏰ Regular Updates:</strong> Keep your browser and operating system updated with the latest security patches.
+                </p>
+            </div>
+        </div>
+
+        <!-- Danger Zone -->
+        <div class="section" style="border-left: 4px solid #ff6b6b;">
+            <div class="section-title" style="color: #ff6b6b;">⚠️ Danger Zone</div>
+            
+            <div class="form-section" style="background: #fff5f5;">
+                <h4 style="margin-bottom: 15px; color: #ff6b6b;">Account Actions</h4>
+                
+                <button class="btn btn-danger" onclick="if(confirm('Are you sure? This action cannot be undone.')) deleteAccount();">
+                    🗑️ Delete Account
+                </button>
+                
+                <div class="description" style="margin-top: 10px; color: #ff6b6b;">
+                    Permanently delete your account and all associated data. This action cannot be undone.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load user settings on page load
+        window.addEventListener('load', async () => {
+            try {
+                const response = await fetch('/api/stats');
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Settings would be loaded from user data
+                    // For now, we'll use defaults
+                    loadSettings();
+                }
+            } catch (error) {
+                console.error('Error loading settings:', error);
+            }
+        });
+
+        function loadSettings() {
+            // Load current settings
+            const alertThreshold = localStorage.getItem('alertThreshold') || '5';
+            const emailAlerts = localStorage.getItem('emailAlerts') === 'true';
+
+            document.getElementById('alertThreshold').value = alertThreshold;
+            document.getElementById('emailAlerts').checked = emailAlerts;
+
+            // Load user info (would come from server in real app)
+            document.getElementById('username').value = '{{ user.username }}';
+            document.getElementById('email').value = '{{ user.email }}';
+            
+            if ('{{ user.created_at }}') {
+                document.getElementById('createdAt').value = new Date('{{ user.created_at }}').toLocaleString();
+            }
+            
+            if ('{{ user.last_login }}') {
+                document.getElementById('lastLogin').value = new Date('{{ user.last_login }}').toLocaleString();
+            } else {
+                document.getElementById('lastLogin').value = 'Never';
+            }
+        }
+
+        function showAlert(message, type) {
+            const alertDiv = type === 'success' ? document.getElementById('successAlert') : document.getElementById('errorAlert');
+            alertDiv.textContent = message;
+            alertDiv.style.display = 'block';
+
+            setTimeout(() => {
+                alertDiv.style.display = 'none';
+            }, 3000);
+        }
+
+        async function saveAlertSettings() {
+            const alertThreshold = document.getElementById('alertThreshold').value;
+            const emailAlerts = document.getElementById('emailAlerts').checked;
+
+            try {
+                const response = await fetch('/api/update-settings', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        alert_threshold: parseInt(alertThreshold),
+                        email_alerts: emailAlerts
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Save to localStorage as well
+                    localStorage.setItem('alertThreshold', alertThreshold);
+                    localStorage.setItem('emailAlerts', emailAlerts);
+                    
+                    showAlert('✓ Settings saved successfully!', 'success');
+                } else {
+                    showAlert('✗ Failed to save settings: ' + (data.error || 'Unknown error'), 'error');
+                }
+            } catch (error) {
+                showAlert('✗ Network error: ' + error.message, 'error');
+            }
+        }
+
+        async function deleteAccount() {
+            // In a real app, this would send a request to delete the account
+            showAlert('✗ Account deletion is disabled in this demo', 'error');
+        }
+
+        loadSettings();
+    </script>
+</body>
+</html>

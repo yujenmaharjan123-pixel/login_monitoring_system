@@ -1,0 +1,132 @@
+[
+  {
+    "attempt_id": "c386c340-81b7-4678-b6c0-ce63bf6d517e",
+    "username": "yujen",
+    "ip_address": "127.0.0.1",
+    "timestamp": "2026-03-08T15:13:30.097217",
+    "success": false,
+    "threat_level": "low",
+    "user_agent": "",
+    "location": null
+  },
+  {
+    "attempt_id": "91ab7e34-343c-4206-a6f8-15b1b480069c",
+    "username": "yujen",
+    "ip_address": "127.0.0.1",
+    "timestamp": "2026-03-08T15:14:47.764074",
+    "success": false,
+    "threat_level": "low",
+    "user_agent": "",
+    "location": null
+  },
+  {
+    "attempt_id": "a668c0c0-c617-4123-80d7-faf26be6fb70",
+    "username": "Yujen",
+    "ip_address": "127.0.0.1",
+    "timestamp": "2026-03-08T15:14:55.978509",
+    "success": true,
+    "threat_level": "low",
+    "user_agent": "",
+    "location": null
+  },
+  {
+    "attempt_id": "4368271d-6254-435b-8f17-86c70e16877c",
+    "username": "Yujen",
+    "ip_address": "127.0.0.1",
+    "timestamp": "2026-03-08T15:42:35.476116",
+    "success": true,
+    "threat_level": "low",
+    "user_agent": "",
+    "location": null
+  },
+  {
+    "attempt_id": "bb8643cd-f5ae-4846-b4eb-7e1b1b3f12bf",
+    "username": "Yujen",
+    "ip_address": "127.0.0.1",
+    "timestamp": "2026-03-08T17:00:22.003908",
+    "success": true,
+    "threat_level": "low",
+    "user_agent": "",
+    "location": null
+  },
+  {
+    "attempt_id": "588c4491-c805-4f22-9265-b486dd10e61b",
+    "username": "Yujen",
+    "ip_address": "127.0.0.1",
+    "timestamp": "2026-03-08T21:53:57.011947",
+    "success": true,
+    "threat_level": "low",
+    "user_agent": "",
+    "location": null
+  },
+  {
+    "attempt_id": "3bca85fe-5452-479d-bfc1-ec809da92866",
+    "username": "Yujen",
+    "ip_address": "127.0.0.1",
+    "timestamp": "2026-03-08T21:54:19.298872",
+    "success": false,
+    "threat_level": "low",
+    "user_agent": "",
+    "location": null
+  },
+  {
+    "attempt_id": "6fd70790-f79a-4640-8b4e-00861173bea2",
+    "username": "Yujen",
+    "ip_address": "127.0.0.1",
+    "timestamp": "2026-03-08T21:54:21.224878",
+    "success": false,
+    "threat_level": "low",
+    "user_agent": "",
+    "location": null
+  },
+  {
+    "attempt_id": "4543a943-e27e-4bea-bc3e-bf4c027f873e",
+    "username": "Yujen",
+    "ip_address": "127.0.0.1",
+    "timestamp": "2026-03-08T21:54:22.292100",
+    "success": false,
+    "threat_level": "low",
+    "user_agent": "",
+    "location": null
+  },
+  {
+    "attempt_id": "5703e066-dbee-4218-9706-377af551051f",
+    "username": "Yujen",
+    "ip_address": "127.0.0.1",
+    "timestamp": "2026-03-08T21:54:23.306686",
+    "success": false,
+    "threat_level": "low",
+    "user_agent": "",
+    "location": null
+  },
+  {
+    "attempt_id": "f5640332-fc39-4c2e-9bc4-e42b566fb042",
+    "username": "Yujen",
+    "ip_address": "127.0.0.1",
+    "timestamp": "2026-03-08T21:54:24.456108",
+    "success": false,
+    "threat_level": "low",
+    "user_agent": "",
+    "location": null
+  },
+  {
+    "attempt_id": "37f3faa7-569b-4b7b-b292-bda0a6a96929",
+    "username": "Yujen",
+    "ip_address": "127.0.0.1",
+    "timestamp": "2026-03-08T21:54:32.871060",
+    "success": true,
+    "threat_level": "medium",
+    "user_agent": "",
+    "location": null
+  },
+  {
+    "attempt_id": "a347627a-8e90-4504-b2a7-6bbbe139971f",
+    "username": "Yujen",
+    "ip_address": "127.0.0.1",
+    "timestamp": "2026-03-08T21:55:07.981062",
+    "success": true,
+    "threat_level": "medium",
+    "user_agent": "",
+    "location": null
+  }
+]
